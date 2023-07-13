@@ -1,0 +1,45 @@
+---
+title: 示例
+---
+
+```bash
+earthFlyLine.init(options)=>Chart
+```
+
+## 🌰 例子
+
+```javascript
+  const chart = earthFlyLine.init({
+    dom:document.getElementById('container'),
+    map: "world",
+    config: {
+      R: 140,
+      earth: {
+        color: "#13162c",
+      },
+      mapStyle: {
+        areaColor: "#2e3564",
+        lineColor: "#797eff",
+      },
+      spriteColor: "#797eff", 
+      pathStyle: {
+        color: "#cd79ff", 
+      },
+      flyLineStyle: {
+        color: "#cd79ff",
+      },
+      scatterStyle: {
+        color: "#cd79ff",
+      },
+      hoverRegionStyle: {
+        areaColor: "#cd79ff",
+      },
+      regions: {
+        China: {
+          areaColor: "#2e3564",
+        },
+      },
+    },
+  })
+```
+

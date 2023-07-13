@@ -1,0 +1,22 @@
+<div id="container"></div>
+<script>
+  import chart from 'earth-flyline'
+  import world from '../assets/world.json'
+  chart.registerMap("world",world);
+  const dom = document.getElementById("container");
+  const chartInstance = chart.init({
+          dom,
+          map: "world",
+          bgColor:'#16181d',
+          config:{
+            spriteColor:'#16181d'
+          }
+        })
+  </script>
+  
+  <style lang="less">
+    #container{
+      width: 100%;
+      height: 500px;
+    }
+  </style>

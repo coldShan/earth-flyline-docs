@@ -1,0 +1,41 @@
+---
+title: 安装
+
+---
+
+```bash
+npm install earth-flyline
+```
+
+## 🚗 开始
+本组件提供json文件和image图片两种方式注册地图
+### JSON注册
+```javascript
+import earthFlyLine from "earth-flyline";
+//请先下载地图文件（可去第三方下载） 然后注册地图 本项目的地图文件在src/map/world
+import geojson from '/path/to/world.json'
+earthFlyLine.registerMap("world", geojson);
+//获取dom节点作为容器 注：该节点请设置宽高
+const dom = document.getElementById("container");
+const chart = earthFlyLine.init({
+  dom,
+  map: "world",
+});
+```
+### IMG注册
+```javascript
+import earthFlyLine from "earth-flyline";
+const imageUrl = 'path/to/image.png'
+const chart = earthFlyLine.init({
+  dom,
+  config:{
+    texture: imageUrl,// worldImg 为图片地址非base64
+  }
+});
+```
+
+import Earth from '../../../components/earth.astro'
+
+<div class="container">
+  <Earth></Earth>
+</div>

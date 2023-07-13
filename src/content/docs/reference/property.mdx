@@ -1,0 +1,195 @@
+---
+title: 参数
+---
+
+import Tag from '../../../components/tag.astro'
+import Alert from '../../../components/alert.astro'
+
+## options
+---
+创建earth-flyline实例所需参数配置
+### options.dom（必填）
+<br/>
+<Tag color="blue">类型: HTMLElement</Tag>
+<Tag color="pink">说明：dom容器（需设置宽高）</Tag>
+
+### options.bgColor
+<br/>
+<Tag color="blue">类型: string</Tag>
+<Tag color="pink"> 说明: 场景背景色</Tag>
+<Tag color="purple">  默认：#040D21</Tag>
+
+### options.autoRotate
+<br/>
+<Tag color="blue">类型: boolean</Tag>
+<Tag color="pink"> 说明: 是否自转</Tag>
+<Tag color="purple">默认：true</Tag>
+
+### options.rotateSpeed
+<br/>
+<Tag color="blue">类型: number</Tag>
+<Tag color="pink"> 说明: 自转速度</Tag>
+<Tag color="purple">默认：0.01</Tag>
+
+### options.map
+<br/>
+<Tag color="blue">类型: string</Tag>
+<Tag color="pink"> 说明: 已注册地图名称</Tag>
+<Tag color="purple">默认：-</Tag>
+
+### options.mode
+<br/>
+<Tag color="blue">类型: string</Tag>
+<Tag color="pink"> 说明: 渲染模式</Tag>
+<Tag color="purple">默认：3d</Tag>
+
+## options.config
+内置模型样式配置
+
+---
+
+### config.R
+<br/>
+<Tag color="blue">类型: number</Tag>
+<Tag color="pink">说明: 地球半径</Tag>
+<Tag color="purple">默认: 150</Tag>
+
+### config.texture
+
+<Alert color="warning">注意：如果使用贴图，则地图颜色等相关配置不生效</Alert>
+<br/>
+
+<Tag color="blue">类型: string</Tag>
+<Tag color="pink">说明: 地图图片URL地址</Tag>
+<Tag color="purple">默认: -</Tag>
+<br/>
+
+### config.earth
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 球体样式配置</Tag>
+<br/>
+
+<Alert color="primary">目前只支持color（可以理解为海洋的颜色），后续会暴露更多api 如反光材料等</Alert>
+<br/>
+
+<Tag color="purple">默认</Tag>
+
+``` json
+{
+  color: "#13162c",
+}
+```
+
+### config.mapStyle
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 地图样式配置</Tag>
+
+<br/>
+<br/>
+
+<Tag color="purple">默认</Tag>
+``` json
+{
+  areaColor: "#2e3564", //区域颜色
+  lineColor: "#797eff",//边界线颜色
+}
+```
+
+### config.spriteColor
+<br/>
+<Tag color="blue">类型: string</Tag>
+<Tag color="pink">说明: 地球光圈颜色</Tag>
+<Tag color="purple">默认: #797eff</Tag>
+
+
+### config.pathStyle
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 飞线路径线配置</Tag>
+<br/>
+<br/>
+<Tag color="purple">默认</Tag>
+
+``` json
+{
+  color: "#cd79ff", 
+}
+```
+
+### config.flyLineStyle
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 蝌蚪飞线配置</Tag>
+<br/>
+<br/>
+<Tag color="purple">默认</Tag>
+
+``` json
+{
+  color: "#cd79ff",
+  duration:2000, // 一个完成动画所需时间(单位毫秒)，值越小动画速度越快
+  delay:0,//延迟执行时间默认
+  repeat:Infinity,//循环次数 无限循环
+  onComplete:(params)=>{ //当repeat循环次数用尽之后的回调 当repeat为无限循环 则永不触发
+    //do something
+  }
+}
+```
+
+### config.scatterStyle
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 涟漪配置</Tag>
+<br/>
+<br/>
+<Tag color="purple">默认</Tag>
+
+``` json
+{
+  color: "#cd79ff",
+  size:config.R * 0.05, //涟漪的尺寸 默认为 半径R*0.05
+  duration:2000, // 一个完成动画所需时间(单位毫秒)，值越小动画速度越快
+  delay:0,//延迟执行时间默认
+  repeat:Infinity,//循环次数 无限循环
+  onComplete:(params)=>{ //当repeat循环次数用尽之后的回调 当repeat为无限循环 则永不触发
+    //do something
+  }
+}
+```
+
+### config.hoverRegionStyle
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 鼠标hover区域高亮</Tag>
+<Tag color="purple">默认: -</Tag>
+
+<br/>
+<br/>
+<Tag color="red">举例</Tag>
+
+``` json
+{
+  areaColor: "#cd79ff",
+}
+```
+
+### config.hoverRegionStyle
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 单独配置地图区域的颜色</Tag>
+<Tag color="purple">默认: -</Tag>
+
+<br/>
+<br/>
+
+<Tag color="red">举例</Tag>
+``` json
+{
+  China: {
+    areaColor: "#2e3564",
+  },
+},
+```
+<Alert color="primary">提示：key值取地图json文件 里对应国家 properties.name 字段</Alert>
