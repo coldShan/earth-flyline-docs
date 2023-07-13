@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
     outDir: './docs',
+    base:'https://javascriptam.github.io/earth-flyline-docs/',
   integrations: [
     starlight({
       title: 'Earth-flyLine',
