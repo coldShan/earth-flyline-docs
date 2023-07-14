@@ -29,8 +29,20 @@ const initData = [
     to: { id: 2, lon: 26.1223, lat: -7.8756 },
   },
   {
-    from: { lon: 142.8123, lat: -58.9813 },
-    to: { lon: 157.0064, lat: 10.7816 },
+    from: { lon: 142.8123, lat: -58.9813 ,style:{
+      color:'yellow'
+    }},
+    to: { lon: 157.0064, lat: 10.7816,style:{
+      color:'yellow'
+    } },
+    style:{
+      pathStyle:{
+        color:"yellow"
+      },
+      flyLineStyle:{
+        color:"yellow"
+      }
+    }
   },
   {
     from: { lon: -175.6286, lat: 72.8359 },
@@ -49,6 +61,18 @@ const initData = [
     to: { lon: 41.4114, lat: 41.5946 },
   },
 ]
+let i = 0
+function polling(){
+  setTimeout(() => {
+    i++
+    if(i<initData.length){
+      polling()
+      chartInstance.addData('flyLine',[initData[i]])
+    }
+    
+  }, 1000);
+}
+polling()
 const points = [
   {
     lon: -43.0075,
@@ -66,8 +90,9 @@ const chartInstance = chart.init({
     spriteColor:'#16181d'
   }
 })
-chartInstance.addData('flyLine',initData)
 chartInstance.addData('point',points)
+chartInstance.renderer.setClearColor("#fff", 0);
+
 </script>
 
 <style lang="less">
@@ -81,7 +106,7 @@ chartInstance.addData('point',points)
       right: 0;
     }
     .left {
-      width:800px;
+      width:500px;
       margin-top: 70px;
       h1 {
         font-size: clamp(var(--sl-text-3xl),calc(0.25rem + 5vw),var(--sl-text-6xl));

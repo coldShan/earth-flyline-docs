@@ -7,6 +7,7 @@ export default defineConfig({
     base:'/earth-flyline-docs',
     integrations: [
       starlight({
+        
         title: 'Earth-flyLine',
         social: {
           github: 'https://github.com/JavaScriptam/earth-flyLine',
