@@ -82,6 +82,10 @@ scatterStyle请参考 <a style="color:" href="/earth-flyline-docs/reference/prop
 id字段：from和to里的id最终会拼接在一起<span style="color:#1890ff;">id=$\{from.id\}-$\{to.id\}</span> ,如果没有传id 则会根据经纬度拼接 拼接逻辑为： 
 <span style="color:#1890ff;">id =$\{from.lon\}$\{from.lat\}-$\{to.lon\}$\{to.lat\}</span> 此id被用于remove方法
 </Alert>
+### setData
+<Alert color="warning">
+和addData参数一致，区别在于setData覆盖已存在的数据。addData 是在原有数据的基础上增量添加
+</Alert>
 ### remove
 
 ``` javascript
