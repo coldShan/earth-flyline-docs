@@ -7,12 +7,15 @@ export default defineConfig({
     base:'/earth-flyline-docs',
     integrations: [
       starlight({
-        
         title: 'Earth-flyLine',
         social: {
           github: 'https://github.com/JavaScriptam/earth-flyLine',
         },
         sidebar: [
+          {
+            label: '更新日志',
+            link:'/changelog/log/'
+          },
           {
             label: '起步',
             items: [
@@ -29,6 +32,10 @@ export default defineConfig({
               { label: '参数', link: '/reference/property/' },
               { label: '方法', link: '/reference/methods/' },
             ],
+          },
+          {
+            label: '致谢',
+            link:"/thanks/thanks/"
           },
         ],
         defaultLocale: 'zh',
