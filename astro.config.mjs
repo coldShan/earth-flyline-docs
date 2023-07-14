@@ -5,6 +5,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
     outDir: './docs',
     base:'/earth-flyline-docs',
+    output: 'static',
     integrations: [
       starlight({
         title: 'Earth-flyLine',
