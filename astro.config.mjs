@@ -1,10 +1,17 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
+console.log(process.env.npm_lifecycle_script === 'astro build --vercel')
+let config = {
+}
+if(process.env.npm_lifecycle_script !== 'astro build --vercel'){
+  config = {
+    site:'https://javascriptam.github.io/earth-flyline-docs/',
+      base:'/earth-flyline-docs',
+  }
+}
 // https://astro.build/config
 export default defineConfig({
-    site:'https://javascriptam.github.io/earth-flyline-docs/',
-    base:'/earth-flyline-docs',
+    ...config,
     integrations: [
       starlight({
         title: 'Earth-flyLine',
