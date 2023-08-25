@@ -46,6 +46,13 @@ import Alert from '../../../components/alert.astro'
 <Tag color="pink"> 说明: 渲染模式</Tag>
 <Tag color="purple">默认：3d</Tag>
 
+### options.limitFps
+<br/>
+<Tag color="blue">类型: boolean</Tag>
+<Tag color="pink">说明：是否锁定30帧</Tag>
+<Tag color="purple">默认：false</Tag>
+
+
 ## options.config
 内置模型样式配置
 
@@ -57,11 +64,18 @@ import Alert from '../../../components/alert.astro'
 <Tag color="pink">说明: 地球半径</Tag>
 <Tag color="purple">默认: 150</Tag>
 
-### config.bgColor
+### config.bgStyle
 <br/>
-<Tag color="blue">类型: string</Tag>
+<Tag color="blue">类型: object</Tag>
 <Tag color="pink"> 说明: 场景背景色</Tag>
-<Tag color="purple">  默认：#040D21</Tag>
+
+<Tag color="purple">默认</Tag>
+``` json
+{
+  color: "#040D21",
+  opacity: 1,
+}
+```
 
 ### config.texture
 
@@ -106,12 +120,21 @@ import Alert from '../../../components/alert.astro'
 }
 ```
 
-### config.spriteColor
+### config.spriteStyle
 <br/>
-<Tag color="blue">类型: string</Tag>
-<Tag color="pink">说明: 地球光圈颜色</Tag>
-<Tag color="purple">默认: #797eff</Tag>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 地球光圈配置</Tag>
 
+<br/>
+<br/>
+
+<Tag color="purple">默认: #797eff</Tag>
+``` json
+{
+  color: "#797eff",
+  show: true,//是否展示光圈
+}
+```
 
 ### config.pathStyle
 <br/>
@@ -164,9 +187,36 @@ import Alert from '../../../components/alert.astro'
   repeat:Infinity,//循环次数 无限循环
   onComplete:(params)=>{ //当repeat循环次数用尽之后的回调 当repeat为无限循环 则永不触发
     //do something
-  }
+  },
+  customFigure?:false //（该字段查看config.scatterStyle.customFigure详解）
 }
+
 ```
+### config.scatterStyle.customFigure
+
+<Alert color="warning">注意：如果使用该字段则内置的涟漪不生效,动画需要自己配置</Alert>
+``` json
+  { //自定义节点样式
+    texture: imgUrl or svgUrl,//自定义节点的贴图 可以是image的url 或者是svg的url 
+    animate: { //不配置animate则不会有动画执行,目前只支持 size和opacity的动画
+      from: {
+        size?: 11,
+        opacity?: 0,
+      },
+      to: {
+        size?: [22,11],
+        opacity?: [1,0],
+      },
+    },
+  },
+简单说明：
+我们拿opacity举例：form.opacity === 0为动画开始的初始透明度，to.opacity === [1,0]。表示动画经历三个阶段 0 > 1 >0 动画播放完成
+如果to.opacity === [0.5,1,0.5,0] 则表示动画会经历 0>0.5>1>0.5>0 五个阶段过渡，一轮动画播放完成
+```
+
+<Alert color="error">请注意texture字段的图片或者svg需要白色,可以参考本项目下(/src/image/triangel)svg和png图片，颜色可以通过scatterStyle.color字段来控制</Alert>
+<br/>
+
 
 ### config.hoverRegionStyle
 <br/>
