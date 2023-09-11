@@ -1,0 +1,28 @@
+---
+title: 实例方法
+---
+import Tag from '../../../components/tag.astro'
+import Alert from '../../../components/alert.astro'
+
+``` javascript
+chart.on(eventName:string,callback:(event: Event, mesh: Object3D | Group | Mesh | undefined) => void)
+```
+
+### eventName
+<Tag color="blue">类型: 字符串</Tag>
+<Tag color="pink"> 说明: 所有鼠标事件</Tag>
+
+### callback
+<Tag color="blue">类型: Function</Tag>
+<Tag color="pink"> 说明: 鼠标事件出发的回调</Tag>
+
+### 示例
+```javascript
+chart.on('click',(event,params)=>{
+  //如果有点击到具体模型（包括 地球、飞线、地图区域 、涟漪等）
+  if(params){
+    console.log(params.userData)
+  }
+})
+```
+

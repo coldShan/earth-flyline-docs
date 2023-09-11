@@ -12,6 +12,9 @@ if(process.env.npm_lifecycle_script !== 'astro build --vercel'){
 // https://astro.build/config
 export default defineConfig({
     ...config,
+    server:{
+      port: 3001
+    },
     integrations: [
       starlight({
         title: 'Earth-flyLine',
@@ -38,6 +41,7 @@ export default defineConfig({
               { label: '示例', link: '/reference/example/' },
               { label: '参数', link: '/reference/property/' },
               { label: '方法', link: '/reference/methods/' },
+              { label: '事件', link: '/reference/event/' },
             ],
           },
           {
