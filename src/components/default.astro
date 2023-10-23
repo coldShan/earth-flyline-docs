@@ -104,7 +104,10 @@ const chartInstance = chart.init({
   map: "world",
   bgColor:'#16181d',
   config:{
-    spriteColor:'#16181d'
+    spriteStyle:{
+      color:'#16181d',
+      show:false
+    }
   }
 })
 const chartInstance1 = chart.init({
@@ -113,7 +116,10 @@ const chartInstance1 = chart.init({
   mode:'2d',
   bgColor:'#16181d',
   config:{
-    spriteColor:'#16181d'
+    spriteStyle:{
+      color:'#16181d',
+      show:false
+    }
   }
 })
 chartInstance.addData('point',points)

@@ -45,6 +45,10 @@ export default defineConfig({
             ],
           },
           {
+            label: '进阶',
+            link:"/advance/advance/"
+          },
+          {
             label: '致谢',
             link:"/thanks/thanks/"
           },

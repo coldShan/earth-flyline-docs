@@ -1,0 +1,45 @@
+---
+title: 进阶用法
+---
+
+
+import Alert from '../../../components/alert.astro'
+
+因为本项目依赖于 threejs，所以项目本身暴露出 threejs 的一些对象可供操作
+
+## 开启 threejs 辅助功能 helper
+<Alert color="primary">
+开启之后会出现坐标系：你可以看到该实例的 X ,Y Z 轴展示在视图上。<br/>
+注意：Z 轴因为正对屏幕 所以一般看不到 需要通过旋转视角在才能看的到
+</Alert>
+```` javascript
+const chart = earthFlyLine.init({
+  //...other options,
+  helper:true
+})
+
+````
+
+## 固定视角
+
+有时候我们不希望地球自转并且希望初始化时固定地球的角度（也就是所谓的正对屏幕的中心点）
+<Alert color="primary">
+此时我们有两个选择
+1:旋转地球本身
+2:改变相机的观察角度 也就是视角
+
+</Alert>
+```` javascript
+//首先传入 helper 开启坐标系
+const chart = earthFlyLine.init({
+  //...other options,
+  helper:true
+})
+//初始化之后 chart 包含 threejs 的3Dobject 以及物料等等
+//地球进行一个 x 轴和 y 轴的旋转
+chart.mainContainer.rotateY(2.8);
+chart.mainContainer.rotateX(-0.4);
+//或者通过相机改变视角进行操作 达到相同的效果
+chart.camera.position.set(0, 0, 850);
+chart.camera.lookAt(0, 0, 0);
+````
