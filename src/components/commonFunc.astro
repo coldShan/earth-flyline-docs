@@ -1,0 +1,16 @@
+<script>
+
+  document.querySelectorAll('a[data-href]').forEach(item=>{
+        item.addEventListener('click',()=>{
+            link(item.getAttribute('data-href') as string)
+            // link(item['data-href'])
+        })
+    })
+    function link(url:string){
+        let baseUrl = ''
+        if(window.location.origin.indexOf('vercel')===-1){
+            baseUrl='/earth-flyline-docs'
+        }
+        window.location.href=baseUrl + url
+    }
+    </script>
