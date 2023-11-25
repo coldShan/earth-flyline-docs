@@ -1,9 +1,9 @@
 <script>
 
   document.querySelectorAll('a[data-href]').forEach(item=>{
+    console.log(item)
         item.addEventListener('click',()=>{
             link(item.getAttribute('data-href') as string)
-            // link(item['data-href'])
         })
     })
     function link(url:string){
