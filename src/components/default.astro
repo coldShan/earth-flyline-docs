@@ -26,6 +26,8 @@ function jump(){
   }
 }
 window.onload = function(){
+  document.documentElement.setAttribute('data-theme','dark')
+
   document.querySelector('.astro-LSL227CA')!.addEventListener('click', () => {
     jump()
   });
@@ -123,9 +125,33 @@ const chartInstance1 = chart.init({
   }
 })
 chartInstance.addData('point',points)
+const roadData = [
+    {
+      id: "7-6",
+      path: [
+        {
+          lon: -23.0075,
+          lat: 50.4296,
+        },
+        {
+          lon: -26.1223,
+          lat: -7.8756,
+        },
+        {
+          lon: 115.7, lat: 39.4
+        },
+        {
+          lon: -23.0075,
+          lat: 50.4296,
+        },
+      ],
+      
+    },
+  ]
+chartInstance.addData("road", roadData)
+chartInstance1.addData("road", roadData)
 chartInstance.renderer.setClearColor("#fff", 0);
 chartInstance1.renderer.setClearColor("#fff", 0);
-
 </script>
 
 <style lang="less">

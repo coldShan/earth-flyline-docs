@@ -15,7 +15,7 @@ earthFlyLine.init(options)=>Chart
   chart.addData(type,data)
 ```
 ---
-type: <Tag color="cyan">flyLine</Tag><span style="margin-right:8px;">|</span><Tag  color="cyan">point</Tag>
+type: <Tag color="cyan">flyLine</Tag><span style="margin-right:8px;">|</span><Tag  color="cyan">point</Tag><span style="margin-right:8px;">|</span><Tag  color="cyan">road</Tag>
 
 <br/>
 <Tag color="blue">类型: string</Tag>
@@ -55,6 +55,46 @@ pathStyle请参考 <a style="color:" href="/earth-flyline-docs/reference/propert
 
 flyLineStyle请参考 <a style="color:" href="/earth-flyline-docs/reference/property/#configflylinestyle"><span style="color:#1890ff;">config.flyLineStyle</span></a> 
 
+
+</Alert>
+<br/>
+
+<Tag color="red">type=road</Tag>
+``` javascript
+const roadData = [
+    {
+      id: "字符串", //必填
+      path: [
+        {
+          lon: -23.0075,
+          lat: 50.4296,
+        },
+        {
+          lon: -26.1223,
+          lat: -7.8756,
+        },
+        {
+          lon: -43.0075,
+          lat: -40.4296,
+        },
+        {
+          lon: -23.0075,
+          lat: 50.4296,
+        },
+      ],
+      style: {
+        flyLineStyle: flyLineStyle,
+        pathStyle: pathStyle,
+      },
+    },
+  ]
+chart.addData('road',roadData)
+```
+<Alert color="primary">
+
+pathStyle请参考 <a style="color:" href="/earth-flyline-docs/reference/property/#configpathstyle"><span style="color:#1890ff;">config.pathStyle</span></a> 
+
+flyLineStyle请参考 <a style="color:" href="/earth-flyline-docs/reference/property/#configflylinestyle"><span style="color:#1890ff;">config.flyLineStyle</span></a> 
 
 </Alert>
 <br/>

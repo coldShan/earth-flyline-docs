@@ -170,6 +170,33 @@ import Alert from '../../../components/alert.astro'
 }
 ```
 
+
+### config.roadStyle
+<br/>
+<Tag color="blue">类型: object</Tag>
+<Tag color="pink">说明: 路线图配置</Tag>
+<br/>
+<br/>
+<Tag color="purple">默认</Tag>
+``` json
+//因为路线图包含了路径和飞线 所以支持 flyLineStyle 和 pathStyle 的所有配置
+{
+  flyLineStyle:{
+    color: "#cd79ff",
+    duration:2000, // 一个完成动画所需时间(单位毫秒)，值越小动画速度越快
+    delay:0,//延迟执行时间默认
+    repeat:Infinity,//循环次数 无限循环
+    onComplete:(params)=>{ //当repeat循环次数用尽之后的回调 当repeat为无限循环 则永不触发
+      //do something
+    }
+  },
+  pathStyle:{
+    color: "#cd79ff", 
+  }
+}
+
+```
+
 ### config.scatterStyle
 <br/>
 <Tag color="blue">类型: object</Tag>
