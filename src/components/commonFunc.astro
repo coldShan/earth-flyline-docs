@@ -7,10 +7,12 @@
         })
     })
     function link(url:string){
+        console.log(url)
         let baseUrl = ''
         if(window.location.origin.indexOf('vercel')===-1){
             baseUrl='/earth-flyline-docs'
         }
+        console.log(123)
         window.location.href=baseUrl + url
     }
     </script>
