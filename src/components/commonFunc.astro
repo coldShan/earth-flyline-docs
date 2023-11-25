@@ -1,18 +1,15 @@
 <script>
 
   document.querySelectorAll('a[data-href]').forEach(item=>{
-    console.log(item)
         item.addEventListener('click',()=>{
             link(item.getAttribute('data-href') as string)
         })
     })
     function link(url:string){
-        console.log(url)
         let baseUrl = ''
         if(window.location.origin.indexOf('vercel')===-1){
             baseUrl='/earth-flyline-docs'
         }
-        console.log(123)
         window.location.href=baseUrl + url
     }
     </script>
