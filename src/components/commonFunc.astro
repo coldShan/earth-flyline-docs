@@ -7,7 +7,7 @@
     })
     function link(url:string){
         let baseUrl = ''
-        if(window.location.origin.indexOf('vercel')===-1){
+        if(window.location.origin.indexOf('github')===1){
             baseUrl='/earth-flyline-docs'
         }
         window.location.href=baseUrl + url

@@ -19,10 +19,11 @@
 <script>
 localStorage.setItem('starlight-theme','dark')
 function jump(){
-  if(window.location.origin.indexOf('vercel')>-1){
-    window.location.href = window.location.origin+'/guides/start/'
-  }else{
+  if(window.location.origin.indexOf('github')===1){
     window.location.href = window.location.origin+'/earth-flyline-docs/guides/start/'
+  }else{
+    window.location.href = window.location.origin+'/guides/start/'
+
   }
 }
 window.onload = function(){
