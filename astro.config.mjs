@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 console.log(process.env.npm_lifecycle_script === 'astro build --vercel')
 let config = {
 }
-if(process.env.npm_lifecycle_script !== 'astro build --vercel'){
+if(process.env.npm_lifecycle_script !== 'astro build --vercel' && process.env.NODE_ENV === 'production'){
   config = {
     site:'https://javascriptam.github.io/earth-flyline-docs/',
     base:'/earth-flyline-docs',
