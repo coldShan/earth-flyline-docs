@@ -19,7 +19,7 @@
 <script>
 localStorage.setItem('starlight-theme','dark')
 function jump(){
-  if(window.location.origin.indexOf('github')===1){
+  if(window.location.origin.indexOf('github')>-1){
     window.location.href = window.location.origin+'/earth-flyline-docs/guides/start/'
   }else{
     window.location.href = window.location.origin+'/guides/start/'
@@ -33,6 +33,7 @@ window.onload = function(){
     jump()
   });
 }
+
 import chart from 'earth-flyline'
 import world from '../assets/world.json'
 const geoJson = world as any
